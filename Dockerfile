@@ -6,6 +6,8 @@ ENV TZ=Asia/Seoul
 
 ENV PASSWORD=imsi00
 
+RUN mkdir -p /root/workspace
+
 RUN sed -i 's/deb.debian.org/ftp.harukasan.org/g' /etc/apt/sources.list && \
     apt-get update && \
     apt-get install -y locales && \
@@ -21,8 +23,8 @@ ENV LANG="ko_KR.UTF-8" \
     LANGUAGE="ko_KR.UTF-8" \
     LC_ALL="ko_KR.UTF-8"
 
-WORKDIR /home/coder/project
+WORKDIR /root/workspace
 
 EXPOSE 8080 50001-50010
 
-CMD ["code-server", "--allow-http", "/home/coder/project"]
+CMD ["code-server", "--allow-http", "/root/workspace"]

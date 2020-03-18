@@ -11,7 +11,7 @@ docker build -t minipaper/code-server .
 
 ```shell
 # vscode(8080), optional port(50001-50010)
-docker run --name vscode --restart=unless-stopped -p 50000:8080 -p 50001-50010:50001-50010 -v "${PWD}:/home/coder/project" -e PASSWORD="0000" -d minipaper/code-server
+docker run --name vscode --restart=unless-stopped -p 50000:8080 -p 50001-50010:50001-50010 -v "${PWD}:/root/workspace" -e PASSWORD="0000" -d minipaper/code-server
 ```
 
 ## Delete local docker image
